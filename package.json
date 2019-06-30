@@ -1,9 +1,15 @@
 {
     "name": "envk",
     "version": "1.0.4",
-    "main": "index.js",
+    "author": "Damiano Barbati <damiano.barbati@gmail.com> (http://github.com/damianobarbati)",
+    "repository": "https://github.com/damianobarbati/envk",
     "license": "MIT",
+    "main": "index.js",
     "scripts": {
         "test": "sh test/test.sh"
+    },
+    "devDependencies": {
+        "babel-eslint": "^10.0.2",
+        "eslint": "^6.0.1"
     }
 }

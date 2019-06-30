@@ -10,8 +10,6 @@ if (!fs.existsSync(file))
 
 const content = fs.readFileSync(file).toString();
 
-const envs = {}
-
 // split file in lines, removing empty ones and comments
 const lines = content.split('\n').filter(Boolean).filter(line => !line.startsWith('#'));
 
