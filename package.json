@@ -1,0 +1,9 @@
+{
+    "name": "envk",
+    "version": "1.0.0",
+    "main": "index.js",
+    "license": "MIT",
+    "scripts": {
+        "test": "sh test/test.sh"
+    }
+}
