@@ -1,12 +1,12 @@
 const fs = require('fs');
-const file = process.env.ENVS;
-const debug = !!process.env.ENVS_DEBUG;
+const file = process.env.ENVK;
+const debug = !!process.env.ENVK_DEBUG;
 
 if (!file)
-    throw new Error('ENVS environment variable is empty');
+    throw new Error('ENVK environment variable is empty');
 
 if (!fs.existsSync(file))
-    throw new Error('ENVS environment variable must be a path to an existing file');
+    throw new Error('ENVK environment variable must be a path to an existing file');
 
 const content = fs.readFileSync(file).toString();
 
