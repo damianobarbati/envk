@@ -12,10 +12,10 @@ You can easily see what's happening into `index.js`: wysiwyg'est as possible.
 
 Easy as:
 ```
-ENVK=file.env node index.js
+ENVK=file.env node -r 'envk' index.js
 ```
 
 To debug imported env variables:
 ```
-ENVK=file.env ENVK_DEBUG=1 node index.js
+ENVK=file.env ENVK_DEBUG=1 node -r 'envk' index.js
 ```

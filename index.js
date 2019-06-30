@@ -12,12 +12,11 @@ const content = fs.readFileSync(file).toString();
 
 const envs = {}
 
-const lines = content.split('\n');
+// split file in lines, removing empty ones and comments
+const lines = content.split('\n').filter(Boolean).filter(line => !line.startsWith('#'));
+
 for (const index in lines) {
     const line = lines[index];
-
-    if (line.startsWith('#'))
-        continue;
 
     try {
         // default undefined or missing values to empty string
@@ -41,6 +40,7 @@ for (const index in lines) {
             console.log(key, '=', value);
     }
     catch (error) {
-        throw new Error(`ENVS line malformed at index ${index}: ${line}`);
+        console.log(error);
+        throw new Error(`ENVK line malformed at index ${index}: ${line}`);
     }
 }
