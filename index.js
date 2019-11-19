@@ -1,14 +1,17 @@
 const fs = require('fs');
-const file = process.env.ENVK;
-const debug = !!process.env.ENVK_DEBUG;
+const { NODE_ENV, ENVK, ENVK_DEBUG } = process.env;
 
-if (!file)
-    throw new Error('ENVK environment variable is empty');
+if (!ENVK && !NODE_ENV)
+    throw new Error('(envk) Either NODE_ENV or ENVK environment variable are required to have ENVK parse the proper .env file.');
 
-if (!fs.existsSync(file))
-    throw new Error('ENVK environment variable must be a path to an existing file');
+const envFile = ENVK || `.env.${NODE_ENV}`;
+if (!fs.existsSync(envFile))
+    throw new Error(`(envk) ${envFile} file does not exist.`);
 
-const content = fs.readFileSync(file).toString();
+if (ENVK_DEBUG)
+    console.log(`(envk) reading envs from ${envFile}`);
+
+const content = fs.readFileSync(envFile).toString();
 
 // split file in lines, removing empty ones and comments
 const lines = content.split('\n').filter(Boolean).filter(line => !line.startsWith('#'));
@@ -34,8 +37,8 @@ for (const index in lines) {
 
         process.env[key] = value;
 
-        if (debug)
-            console.log(key, '=', value);
+        if (ENVK_DEBUG)
+            console.log(`(envk) ${key}=${value}`);
     }
     catch (error) {
         console.log(error);

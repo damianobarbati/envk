@@ -1,3 +1,0 @@
-HELLO = world
-HOLA = mundo
-CIAO = mondo 😀

@@ -1,0 +1,4 @@
+(envk) reading envs from ./test/config.env
+(envk) HELLO=world
+(envk) HOLA=mundo
+(envk) CIAO=mondo 😀
