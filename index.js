@@ -2,19 +2,19 @@ const fs = require('fs');
 const { NODE_ENV, ENVK, ENVK_DEBUG } = process.env;
 
 if (!ENVK && !NODE_ENV)
-    throw new Error('(envk) Either NODE_ENV or ENVK environment variable are required to have ENVK parse the proper .env file.');
+    throw new Error('[envk] Either NODE_ENV or ENVK environment variable are required to have ENVK parse the proper .env file.');
 
 const envFile = ENVK || `.env.${NODE_ENV}`;
 if (!fs.existsSync(envFile))
-    throw new Error(`(envk) ${envFile} file does not exist.`);
+    throw new Error(`[envk] ${envFile} file not found.`);
 
 if (ENVK_DEBUG)
-    console.log(`(envk) reading envs from ${envFile}`);
-
-const content = fs.readFileSync(envFile).toString();
+    console.log(`[envk] reading envs from ${envFile}`);
 
 // split file in lines, removing empty ones and comments
-const lines = content.split('\n').filter(Boolean).filter(line => !line.startsWith('#'));
+const lines = fs.readFileSync(envFile).toString().split('\n').filter(Boolean).filter(line => !line.startsWith('#'));
+
+const envs = {};
 
 for (const index in lines) {
     const line = lines[index];
@@ -35,13 +35,15 @@ for (const index in lines) {
 
         value = value.trim();
 
-        process.env[key] = value;
-
-        if (ENVK_DEBUG)
-            console.log(`(envk) ${key}=${value}`);
+        envs[key] = value;
     }
     catch (error) {
         console.log(error);
         throw new Error(`ENVK line malformed at index ${index}: ${line}`);
     }
 }
+
+if (ENVK_DEBUG)
+    console.log(`[envk] ${JSON.stringify(envs)}`);
+
+Object.assign(process.env, envs);
