@@ -1,11 +1,13 @@
 # envk
 
+Like the popular `dotenv`, but zero-dependencies and less verbose.
+
 This package is a slimmer and less "config verbose" alternative to the popular `dotenv`:
 - it looks either for the env `NODE_ENV` (thus loading `.env.<NODE_ENV>` file) or `ENVK` (thus loading `<ENVK>` file)
 - it parses the env file (single quotes, double quotes and comments supported)
 - it assign the variables parsed to the `process.env` global object
 
-When both `ENVK` and `NODE_ENV` are specific, `ENVK` has priority.
+When both `ENVK` and `NODE_ENV` are specified, `ENVK` has priority.
 You can easily see what's happening into `index.js`: wysiwyg'est as possible.
 
 **Nothing more, nothing less.**

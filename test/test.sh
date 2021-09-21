@@ -2,13 +2,27 @@
 set -e
 set -x
 
-ENVK=./test/.env.test ENVK_DEBUG=1 node -r ./index.js test/test.js > test/output.txt
-cmp test/output.txt test/output_expected_1.txt || echo "Test 1 failed"
+cat >.env <<EOT
+HELLO=world
+HOLA='mundo'
 
-NODE_ENV=test ENVK_DEBUG=1 node -r ./index.js test/test.js > test/output.txt
-cmp test/output.txt test/output_expected_2.txt || echo "Test 2 failed"
+CIAO="mondo 😀"
+# rere
 
-NODE_ENV=test ENVK=./test/.env.test ENVK_DEBUG=1 node -r ./index.js test/test.js > test/output.txt
-cmp test/output.txt test/output_expected_1.txt || echo "Test 3 failed"
+KEY=abc1
+KEY=abc2
+EOT
 
-rm test/output.txt
+# if .env.test is not found then .env
+NODE_ENV=test ENVK_DEBUG=1 node -r ../index.js test.js > output.txt
+cmp output.txt output_expected_1.txt || echo "Test 1 failed"
+
+# if .env.test is found then .env.test
+mv .env .env.test
+NODE_ENV=test ENVK_DEBUG=1 node -r ../index.js test.js > output.txt
+cmp output.txt output_expected_1.txt || echo "Test 1 failed"
+
+NODE_ENV=test ENVK_DEBUG=1 node -r ../index.js test.js > output.txt
+cmp output.txt output_expected_2.txt || echo "Test 2 failed"
+
+rm output.txt
