@@ -2,7 +2,7 @@ const fs = require('fs');
 const { NODE_ENV, ENVK_DEBUG } = process.env;
 
 let envFile;
-console.log(`.env.${NODE_ENV}`)
+
 if (fs.existsSync(`.env.${NODE_ENV}`)) {
   envFile = `.env.${NODE_ENV}`;
 }
