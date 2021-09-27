@@ -1,6 +1,6 @@
 {
   "name": "envk",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Like the popular `dotenv`, but zero-dependencies and less verbose.",
   "author": "Damiano Barbati <damiano.barbati@gmail.com> (http://github.com/damianobarbati)",
   "repository": "https://github.com/damianobarbati/envk",
