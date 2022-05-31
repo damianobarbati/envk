@@ -18,6 +18,7 @@ jobs:
       - name: release
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+        shell: bash # needed for test command using pushd and popd
         run: |
           yarn install
           yarn eslint .

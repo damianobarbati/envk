@@ -16,6 +16,7 @@ jobs:
           node-version-file: '.nvmrc'
 
       - name: build
+        shell: bash # needed for test command using pushd and popd
         run: |
           yarn install
           yarn eslint .
