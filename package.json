@@ -6,6 +6,7 @@
   "repository": "https://github.com/damianobarbati/envk",
   "license": "MIT",
   "main": "index.js",
+  "keywords": ["env", ".env", "dotenv", "environment", "variables", "environment variables"],
   "scripts": {
     "eslint": "eslint --ignore-path .gitignore --fix",
     "test": "cd test; sh test.sh; cd .."
