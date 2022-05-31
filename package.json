@@ -8,7 +8,7 @@
   "main": "index.js",
   "scripts": {
     "eslint": "eslint --ignore-path .gitignore --fix",
-    "test": "pushd test; sh test.sh; popd"
+    "test": "cd test; sh test.sh; cd .."
   },
   "devDependencies": {
     "eslint-config-xs": "^1.2.1"
