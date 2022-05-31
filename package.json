@@ -1,12 +1,19 @@
 {
   "name": "envk",
-  "version": "3.0.5",
+  "version": "3.0.6",
   "description": "Autoload your environment variables from your `.env` file, no code changes required. Similar to `dotenv`, but with zero-dependencies and less verbose.",
   "author": "Damiano Barbati <damiano.barbati@gmail.com> (https://github.com/damianobarbati)",
   "repository": "https://github.com/damianobarbati/envk",
   "license": "MIT",
   "main": "index.js",
-  "keywords": ["env", ".env", "dotenv", "environment", "variables", "environment variables"],
+  "keywords": [
+    "env",
+    ".env",
+    "dotenv",
+    "environment",
+    "variables",
+    "environment variables"
+  ],
   "scripts": {
     "eslint": "eslint --ignore-path .gitignore --fix",
     "test": "cd test; sh test.sh; cd .."
