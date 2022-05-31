@@ -11,7 +11,7 @@ if (fs.existsSync(`.env.${NODE_ENV}`)) {
   throw new Error(`[envk] Neither .env.${NODE_ENV} or .env file was found.`);
 }
 
-// split file in lines, removing empty ones and comments
+// split file in lines
 const lines = fs
   .readFileSync(envFile, 'utf8')
   .split('\n')
