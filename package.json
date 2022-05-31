@@ -1,6 +1,6 @@
 {
   "name": "envk",
-  "version": "3.0.4",
+  "version": "3.0.5",
   "description": "Autoload your environment variables from your `.env` file, no code changes required. Similar to `dotenv`, but with zero-dependencies and less verbose.",
   "author": "Damiano Barbati <damiano.barbati@gmail.com> (https://github.com/damianobarbati)",
   "repository": "https://github.com/damianobarbati/envk",
