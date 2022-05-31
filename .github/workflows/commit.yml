@@ -9,6 +9,10 @@ jobs:
   build:
     runs-on: ubuntu-20.04
     timeout-minutes: 3
+    defaults:
+      run:
+        shell: bash # needed for test command using pushd and popd
+
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
@@ -16,7 +20,6 @@ jobs:
           node-version-file: '.nvmrc'
 
       - name: build
-        shell: bash # needed for test command using pushd and popd
         run: |
           yarn install
           yarn eslint .
