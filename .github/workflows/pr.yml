@@ -1,0 +1,22 @@
+name: pr
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version-file: '.nvmrc'
+
+      - name: build
+        run: |
+          yarn install
+          yarn eslint .
+          yarn test

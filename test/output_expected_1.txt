@@ -1,2 +1,5 @@
-[envk] reading envs from ./test/.env.test
-[envk] {"HELLO":"world","HOLA":"mundo","CIAO":"mondo 😀","KEY":"abc2"}
+[envk] reading envs from .env.test
+[envk] HELLO=world
+[envk] HOLA=mundo
+[envk] CIAO=mondo 😀
+[envk] KEY=abc2

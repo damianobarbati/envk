@@ -1,8 +1,8 @@
 {
   "name": "envk",
   "version": "3.0.2",
-  "description": "Like the popular `dotenv`, but zero-dependencies and less verbose.",
-  "author": "Damiano Barbati <damiano.barbati@gmail.com> (http://github.com/damianobarbati)",
+  "description": "Autoload your environment variables from your `.env` file, no code changes required. Similar to `dotenv`, but with zero-dependencies and less verbose.",
+  "author": "Damiano Barbati <damiano.barbati@gmail.com> (https://github.com/damianobarbati)",
   "repository": "https://github.com/damianobarbati/envk",
   "license": "MIT",
   "main": "index.js",
@@ -11,6 +11,6 @@
     "test": "pushd test; sh test.sh; popd"
   },
   "devDependencies": {
-    "eslint": "^7.7.0"
+    "eslint-config-xs": "^1.2.1"
   }
 }

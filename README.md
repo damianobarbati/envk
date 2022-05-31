@@ -1,32 +1,42 @@
 # envk
 
-Like the popular `dotenv`, but zero-dependencies and less verbose.
+This packages lets you autoload your environment variables from your `.env` file, no code changes required.  
 
-This package is a slimmer and less "config verbose" alternative to the popular `dotenv`:
-- it looks either for the env `NODE_ENV` (thus loading `.env.<NODE_ENV>` file) or `ENVK` (thus loading `<ENVK>` file)
-- it parses the env file (single quotes, double quotes and comments supported)
-- it assign the variables parsed to the `process.env` global object
+Similar to `dotenv`, but with zero-dependencies and less verbose.  
 
-When both `ENVK` and `NODE_ENV` are specified, `ENVK` has priority.
-You can easily see what's happening into `index.js`: wysiwyg'est as possible.
+Easy as:
+```sh
+yarn add envk
+node -r envk index.js # autoloads .env file
+```
+
+Features:
+- auto-detect of `.env.<NODE_ENV>` or `.env` file
+- support for custom `.env` filename with `ENVK` environment variable
+- support for single quotes, double quotes, empty lines and comments
+
+You can easily see what's happening inspecting `index.js`: wysiwyg'est at maximum level.
 
 **Nothing more, nothing less.**
 
-## Usage:
+## Usage
 
-To load envs from `.env.<NODE_ENV>` file (i.e: `.env.development`)
-```bash
-NODE_ENV=development node -r envk index.js
+Load envs from `.env`:
+```sh
+node -r envk index.js
 ```
 
-To load envs from specific file (i.e: `file.env`):
-```bash
+Load envs from `.env.production` file, otherwise `.env`:
+```sh
+NODE_ENV=production node -r envk index.js
+```
+
+Load envs from specific file:
+```sh
 ENVK=file.env node -r envk index.js
 ```
 
-To debug imported env variables:
-```bash
-NODE_ENV=development ENVK_DEBUG=1 node -r envk index.js
-# or
-ENVK=file.env ENVK_DEBUG=1 node -r envk index.js
+Log to console imported variables:
+```sh
+ENVK_DEBUG=1 node -r envk index.js
 ```
