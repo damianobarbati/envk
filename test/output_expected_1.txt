@@ -1,5 +1,0 @@
-[envk] reading envs from .env.test
-[envk] HELLO=world
-[envk] HOLA=mundo
-[envk] CIAO=mondo 😀
-[envk] KEY=abc2
