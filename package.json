@@ -16,7 +16,7 @@
   ],
   "scripts": {
     "eslint": "eslint --ignore-path .gitignore --fix",
-    "test": "mocha src"
+    "test": "mocha ./src/*.spec.js"
   },
   "devDependencies": {
     "eslint-config-xs": "^1.2.1",

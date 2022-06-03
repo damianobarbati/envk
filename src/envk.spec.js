@@ -1,6 +1,6 @@
 const fs = require('fs');
 const { strict: assert } = require('assert');
-const envk = require('./index.js');
+const envk = require('./envk.js');
 
 const env = `
 HELLO=world
