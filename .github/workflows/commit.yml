@@ -1,4 +1,4 @@
-name: commit
+name: tag
 
 on:
   push:
@@ -6,18 +6,19 @@ on:
       - main
 
 jobs:
-  build:
-    runs-on: ubuntu-20.04
+  test:
+    runs-on: ubuntu-22.04
     timeout-minutes: 3
-
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - name: checkout
+        uses: actions/checkout@v2
+
+      - name: setup node
+        uses: actions/setup-node@v2
         with:
           node-version-file: '.nvmrc'
 
-      - name: build
+      - name: test
         run: |
           yarn install
-          yarn eslint .
           yarn test
