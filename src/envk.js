@@ -17,14 +17,14 @@ const envk = () => {
   }
 
   const lines = fs
-    .readFileSync(env_file, 'utf8') // read env file
-    .split('\n') // split file in lines
-    .filter(Boolean) // ignore empty lines
-    .filter((line) => !line.startsWith('#')); // ignore comments
+      .readFileSync(env_file, 'utf8') // read env file
+      .split('\n') // split file in lines
+      .filter(Boolean) // ignore empty lines
+      .filter((line) => !line.startsWith('#')); // ignore comments
 
   const envs = {};
 
-  for (const index in lines) {
+  for (const [index, line] of Object.entries(lines)) {
     const line = lines[index];
 
     try {
@@ -44,9 +44,7 @@ const envk = () => {
       value = value.trim();
 
       // do not overwrite envs already provided (eg: by the env or by the cli with ABC=123 node -r envk file.js)
-      if (!envs[key]) {
-        envs[key] = value;
-      }
+      envs[key] = process.env[key] ?? value
     } catch (error) {
       console.log(error);
       throw new Error(`ENVK line malformed in ${env_file}:${line} for key ${index}`);
