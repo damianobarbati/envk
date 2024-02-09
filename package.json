@@ -22,7 +22,7 @@
     "test": "mocha ./src/*.spec.js"
   },
   "devDependencies": {
-    "eslint-config-xs": "^1.5.3",
-    "mocha": "^10.1.0"
+    "eslint-config-xs": "^2.6.7",
+    "mocha": "^10.3.0"
   }
 }

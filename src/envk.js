@@ -43,7 +43,10 @@ const envk = () => {
       // remove spaces
       value = value.trim();
 
-      envs[key] = value;
+      // do not overwrite envs already provided (eg: by the env or by the cli with ABC=123 node -r envk file.js)
+      if (!envs[key]) {
+        envs[key] = value;
+      }
     } catch (error) {
       console.log(error);
       throw new Error(`ENVK line malformed in ${env_file}:${line} for key ${index}`);
