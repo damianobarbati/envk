@@ -13,7 +13,8 @@ const envk = () => {
   } else if (fs.existsSync(`.env`)) {
     env_file = `.env`;
   } else {
-    throw new Error(`[envk] Neither .env.${NODE_ENV} or .env file was found.`);
+    return;
+    // throw new Error(`[envk] Neither .env.${NODE_ENV} or .env file was found.`);
   }
 
   const lines = fs
