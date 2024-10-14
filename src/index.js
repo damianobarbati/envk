@@ -1,2 +1,2 @@
-const envk = require('./envk.js');
+const envk = require("./envk.js");
 envk();

@@ -1,13 +1,12 @@
 # envk
 
-This packages lets you autoload your environment variables from your `.env` file, no code changes required.  
-
+This packages lets you autoload your environment variables from your `.env` file, no code changes required.
 Similar to `dotenv`, but with zero-dependencies and less verbose.  
 
 Easy as:
 ```sh
 yarn add envk
-node -r envk index.js # autoloads .env file
+node -r envk index.js
 ```
 
 Features:

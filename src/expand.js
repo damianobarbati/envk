@@ -7,7 +7,7 @@ ${SALUT:-salut}\$HELLO$HOLA\$done
 const expand = (key, value, envs) => {
   const expanded_value = value.replaceAll(/(\\?\${?[A-Z0-9_]+(:-([^}]+))?}?)/gi, (match) => {
     // if \$ then do not expand
-    if (match.startsWith('\\')) {
+    if (match.startsWith("\\")) {
       return match.slice(1);
     }
 

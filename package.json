@@ -18,11 +18,11 @@
     "environment variables"
   ],
   "scripts": {
-    "eslint": "eslint --ignore-path .gitignore --fix",
+    "lint": "biome check --write",
     "test": "mocha ./src/*.spec.js"
   },
   "devDependencies": {
-    "eslint-config-xs": "^2.6.7",
-    "mocha": "^10.3.0"
+    "@biomejs/biome": "^1.9.3",
+    "mocha": "^10.7.3"
   }
 }
