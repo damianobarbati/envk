@@ -13,7 +13,7 @@ node -r envk index.js # autoloads .env file
 Features:
 - auto-detect of `.env.<NODE_ENV>` or `.env` file
 - support for custom `.env` filename with `ENVK` environment variable
-- support for variable expansiong
+- support for variable expansion
 - support for single quotes
 - support for double quotes
 - support for empty lines
