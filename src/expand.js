@@ -4,7 +4,7 @@ $HELLO${HOLA}${SALUT:-salut}
 ${SALUT:-salut}$HELLO$HOLA
 ${SALUT:-salut}\$HELLO$HOLA\$done
 */
-const expand = (key, value, envs) => {
+const expand = (value, envs) => {
   const expanded_value = value.replaceAll(/(\\?\${?[A-Z0-9_]+(:-([^}]+))?}?)/gi, (match) => {
     // if \$ then do not expand
     if (match.startsWith("\\")) {

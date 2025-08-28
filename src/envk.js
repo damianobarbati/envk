@@ -55,7 +55,7 @@ const envk = () => {
   // expand variables
   for (const [key, value] of Object.entries(envs)) {
     if (value.includes("$")) {
-      envs[key] = expand(key, value, envs);
+      envs[key] = expand(value, envs);
     }
   }
 

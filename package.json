@@ -22,7 +22,7 @@
     "test": "mocha ./src/*.spec.js"
   },
   "devDependencies": {
-    "@biomejs/biome": "^1.9.3",
-    "mocha": "^10.7.3"
+    "@biomejs/biome": "^2.2.2",
+    "mocha": "^11.7.1"
   }
 }
