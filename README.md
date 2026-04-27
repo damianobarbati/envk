@@ -44,3 +44,15 @@ Log to console imported variables:
 ```sh
 ENVK_DEBUG=1 node -r envk index.js
 ```
+
+## Development
+
+Setup:
+```sh
+fnm install
+npm install -g corepack
+corepack enable
+corepack install
+pnpm install
+pnpm test
+```

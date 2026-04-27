@@ -5,9 +5,10 @@
   "author": "Damiano Barbati <damiano.barbati@gmail.com> (https://github.com/damianobarbati)",
   "repository": "https://github.com/damianobarbati/envk",
   "license": "MIT",
-  "main": "src/index.js",
+  "packageManager": "pnpm@10.33.0",
   "engines": {
-    "node": ">=16"
+    "node": ">=24.14",
+    "pnpm": ">=10.33"
   },
   "keywords": [
     "env",
@@ -17,12 +18,18 @@
     "variables",
     "environment variables"
   ],
+  "type": "module",
+  "main": "src/index.js",
+  "exports": {
+    "./": "./src/autoload.js",
+    "./fn": "./src/index.js"
+  },
   "scripts": {
+    "postinstall": "pnpm audit --audit-level critical",
     "lint": "biome check --write",
-    "test": "mocha ./src/*.spec.js"
+    "test": "node --test ./src"
   },
   "devDependencies": {
-    "@biomejs/biome": "^2.2.2",
-    "mocha": "^11.7.1"
+    "@biomejs/biome": "^2.4.13"
   }
 }

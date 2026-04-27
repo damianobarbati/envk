@@ -20,4 +20,4 @@ const expand = (value, envs) => {
   return expanded_value;
 };
 
-module.exports = expand;
+export default expand;
