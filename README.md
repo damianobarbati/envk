@@ -5,7 +5,7 @@ Similar to `dotenv`, but with zero-dependencies and less verbose.
 
 Easy as:
 ```sh
-yarn add envk
+pnpm add envk
 node -r envk index.js
 ```
 

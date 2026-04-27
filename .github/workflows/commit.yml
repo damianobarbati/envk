@@ -20,5 +20,5 @@ jobs:
 
       - name: test
         run: |
-          yarn install
-          yarn test
+          pnpm install
+          pnpm test
