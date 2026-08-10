@@ -1,21 +1,12 @@
 # envk
 
-This packages lets you autoload your environment variables from your `.env` file, no code changes required.
-Similar to `dotenv`, but with zero-dependencies and less verbose.  
+This package lets you autoload your environment variables from your `.env` file, no code changes required.  
+Similar to `dotenv`, but with zero dependencies and less verbose.  
 
 Easy as:
 ```sh
 pnpm add envk
 node -r envk index.js
-```
-
-Or programmatically:
-```js
-// autoload
-import "envk"; 
-// or fn to call
-import envk from "envk/fn";
-envk('<path>');
 ```
 
 Features:
@@ -26,9 +17,9 @@ Features:
 - support for double quotes
 - support for empty lines
 - support for multiline quoting with double quotes `"SECRET=hello\nworld"`
-- support for comments prefixing the line with `#`
+- support for line comments starting with `#`
 
-You can see what's happening inspecting `index.js`.
+You can see what's happening by inspecting `index.js`.
 
 **Nothing more, nothing less.**
 
@@ -39,7 +30,7 @@ Load envs from `.env`:
 node -r envk index.js
 ```
 
-Load envs from `.env.production` file, otherwise `.env`:
+Load envs from `.env.production` file if present, otherwise `.env`:
 ```sh
 NODE_ENV=production node -r envk index.js
 ```
@@ -52,6 +43,18 @@ ENVK=file.env node -r envk index.js
 Log to console imported variables:
 ```sh
 ENVK_DEBUG=1 node -r envk index.js
+```
+
+You can also use envk programmatically:
+```js
+// autoload
+import "envk";
+
+// or
+
+// fn to call
+import envk from "envk/fn";
+envk('<path>');
 ```
 
 ## Development
