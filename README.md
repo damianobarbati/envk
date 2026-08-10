@@ -9,6 +9,15 @@ pnpm add envk
 node -r envk index.js
 ```
 
+Or programmatically:
+```js
+// autoload
+import "envk"; 
+// or fn to call
+import envk from "envk/fn";
+envk('<path>');
+```
+
 Features:
 - auto-detect of `.env.<NODE_ENV>` or `.env` file
 - support for custom `.env` filename with `ENVK` environment variable

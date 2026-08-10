@@ -19,17 +19,28 @@
     "environment variables"
   ],
   "type": "module",
-  "main": "src/index.js",
+  "types": "./src/autoload.d.ts",
   "exports": {
-    "./": "./src/autoload.js",
-    "./fn": "./src/index.js"
+    ".": {
+      "types": "./src/autoload.d.ts",
+      "default": "./src/autoload.js"
+    },
+    "./fn": {
+      "types": "./src/index.d.ts",
+      "default": "./src/index.js"
+    }
   },
+  "files": [
+    "src/*.js",
+    "src/*.d.ts",
+    "!src/*.spec.js"
+  ],
   "scripts": {
     "postinstall": "pnpm audit --audit-level critical",
     "lint": "biome check --write",
     "test": "node --test ./src"
   },
   "devDependencies": {
-    "@biomejs/biome": "^2.4.13"
+    "@biomejs/biome": "^2.5.7"
   }
 }
